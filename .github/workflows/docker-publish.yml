@@ -65,7 +65,7 @@ jobs:
 
   release:
     name: Create release PR
-    needs: [server, frontend]
+    needs: [build]
     runs-on: ubuntu-latest
 
     env:
