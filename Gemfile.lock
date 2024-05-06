@@ -1,0 +1,22 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    connection_pool (2.4.1)
+    redis (5.2.0)
+      redis-client (>= 0.22.0)
+    redis-client (0.22.1)
+      connection_pool
+    rexml (3.2.6)
+    rss (0.3.0)
+      rexml
+
+PLATFORMS
+  ruby
+  x86_64-linux
+
+DEPENDENCIES
+  redis
+  rss
+
+BUNDLED WITH
+   2.5.9
