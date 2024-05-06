@@ -29,6 +29,7 @@ URI.open(url) do |rss|
       uri = URI.parse(webhook)
       params = { access_token: ENV['ACCESS_TOKEN'], status: body, visibility: "public" }
       response = Net::HTTP.post_form(uri, params)
+      puts "Posted: #{response.code} #{response.body}"
     else
       puts "Dry-run: #{body}"
     end
