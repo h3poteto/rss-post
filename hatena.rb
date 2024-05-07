@@ -26,6 +26,7 @@ URI.open(url) do |rss|
     next if item.dc_date <= last_updated_date
     body = "#{item.content_encoded} / #{item.title} - #{item.link}"
     if webhook != nil
+      raise "No access token" if ENV['ACCESS_TOKEN'] == nil
       uri = URI.parse(webhook)
       params = { access_token: ENV['ACCESS_TOKEN'], status: body, visibility: "public" }
       response = Net::HTTP.post_form(uri, params)
