@@ -31,11 +31,13 @@ URI.open(url) do |rss|
       params = { access_token: ENV['ACCESS_TOKEN'], status: body, visibility: "public" }
       response = Net::HTTP.post_form(uri, params)
       puts "Posted: #{response.code} #{response.body}"
-      next if response.code != "200" || response.code != "201"
+      next if response.code != "200" && response.code != "201"
       redis.set('last_updated', item.dc_date)
+      puts "Updated redis key with: #{item.dc_date}"
     else
       puts "Dry-run: #{body}"
       redis.set('last_updated', item.dc_date)
+      puts "Updated redis key with: #{item.dc_date}"
     end
   end
 end

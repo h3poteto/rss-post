@@ -4,3 +4,4 @@ source "https://rubygems.org"
 
 gem "rss"
 gem "redis"
+gem "pry-byebug"
